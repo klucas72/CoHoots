@@ -1,47 +1,41 @@
-require("dotenv").config();
-var express = require("express");
-var exphbs = require("express-handlebars");
+const path = require("path");
+const express = require("express");
+const session = require("express-session");
+const exphbs = require("express-handlebars");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-var db = require("./models");
+const routes = require("./routes");
+const sequelize = require("./config/connection");
 
-var app = express();
-var PORT = process.env.PORT || 3000;
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
+// Set up sessions with cookies
+const sess = {
+  secret: "Super secret secret",
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
 
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
+app.use(session(sess));
+
+const hbs = exphbs.create({});
+
+// Inform Express.js which template engine we're using
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-var syncOptions = { force: false };
+app.use(express.static(path.join(__dirname, "public")));
 
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
+app.use(routes);
 
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+sequelize.sync({ force: true }).then(() => {
+  app.listen(PORT, () => console.log("Now listening"));
 });
-
-module.exports = app;
