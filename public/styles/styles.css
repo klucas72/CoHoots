@@ -1,3 +1,33 @@
-.list-group-item {
-  line-height: 2.5;
+
+
+.card-placement{
+  display: flex; 
+  justify-content: center; 
+  margin-top: 10%;
+}
+
+.top-card {
+  display: flex; 
+  justify-content: space-evenly; 
+  padding-top: 3%; 
+  padding-bottom: 3%;
+}
+
+.card-middle{
+  display: flex; 
+  justify-content: space-between 
+}
+
+.card-bottom {
+  display: flex; 
+  justify-content: space-between; 
+  padding: 3%;
+}
+
+.card-comment{
+  display: flex; 
+  margin-top: 18%; 
+  justify-content: space-between; 
+  padding-right: 3%; 
+  padding-bottom: 3%;
 }
