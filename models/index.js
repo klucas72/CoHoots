@@ -1,42 +1,47 @@
-"use strict";
+// import models
+const Comment = require("./comments");
+const Design = require("./designs");
+const Image = require("./images");
+const Like = require("./likes");
+const User = require("./users");
 
-var fs = require("fs");
-var path = require("path");
-var Sequelize = require("sequelize");
-var basename = path.basename(module.filename);
-var env = process.env.NODE_ENV || "development";
-var config = require(__dirname + "/../config/config.json")[env];
-var db = {};
-
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
-} else {
-  var sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-  );
-}
-
-fs.readdirSync(__dirname)
-  .filter(function(file) {
-    return (
-      file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
-    );
-  })
-  .forEach(function(file) {
-    var model = sequelize.import(path.join(__dirname, file));
-    db[model.name] = model;
-  });
-
-Object.keys(db).forEach(function(modelName) {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
+// comments belong to users
+Comment.belongsTo(User, {
+  foreignKey: "userId",
+  onDelete: "CASCADE",
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+// posts belong to users
+Design.belongsTo(User, {
+  foreignKey: "userId",
+  onDelete: "CASCADE",
+});
 
-module.exports = db;
+// likes belong to users
+Like.belongsTo(User, {
+  foreignKey: "userId",
+  onDelete: "CASCADE",
+});
+
+// each design has one image
+Design.hasOne(Image, {
+  foreignKey: "imageId",
+  onDelete: "CASCADE",
+});
+
+// a design can have many likes through the designId foreign key on model: Like, key: designId
+Design.hasMany(Like, {
+  foreignKey: "designId",
+});
+
+Design.hasMany(Comment, {
+  foreignKey: "designId",
+});
+
+module.exports = {
+  Comment,
+  Design,
+  Image,
+  Like,
+  User,
+};
