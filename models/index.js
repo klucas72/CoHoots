@@ -1,9 +1,9 @@
 // import models
-const Comment = require("./comments");
-const Design = require("./designs");
-const Image = require("./images");
-const Like = require("./likes");
-const User = require("./users");
+const Comment = require("./Comment");
+const Design = require("./Design");
+const Image = require("./Image");
+const Like = require("./Like");
+const User = require("./User");
 
 // comments belong to users
 Comment.belongsTo(User, {
