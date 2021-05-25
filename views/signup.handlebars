@@ -1,65 +1,51 @@
 <div class="col-sm-6 container-fluid mt-5 border border-dark p-4">
-      <form class="mb-4 container-fluid" id="signup-form">
-        <div class="form-group mb-4">
-             <h3 class="display-6">Sign Up</h3>
-             <hr class="my-4">
-             
-{{!-- Username --}}
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Enter Username"
-            id="username-input-signup"
-          />
-        </div>
+  <form class="mb-4 container-fluid" id="signup-form">
+    <div class="form-group mb-4">
+      <h3 class="display-6">Sign Up</h3>
+      <hr class="my-4">
 
-     {{!-- Password --}}
-        <div class="form-group mb-4">
-          <input type="password" class="form-control" placeholder="Password"
-          id="password-input-signup" />
-        </div>
+      {{!-- Username --}}
+      <input type="text" class="form-control" placeholder="Enter Username" id="username-input-signup" />
+    </div>
+
+    {{!-- Password --}}
+    <div class="form-group mb-4">
+      <input type="password" class="form-control" placeholder="Password" id="password-input-signup" />
+    </div>
 
     {{!-- First Name--}}
-        <div class="form-group mb-4">
-          <input type="first-name" class="form-control" placeholder="First Name"
-          id="first-name-signup" />
-          </div>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+      </div>
+      {{!-- Last Name --}}
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+      </div>
+    </div>
+    <br>
+    {{!-- Street Address --}}
+    <div class="form-group mb-4">
+      <input type="street-address" class="form-control" placeholder="Street Address" id="street-address-signup" />
+    </div>
 
-    {{!-- Last Name--}}
-        <div class="form-group mb-4">
-           <input type="last-name" class="form-control" placeholder="Last Name"
-          id="last-name-signup" />
-        </div>
-
-        {{!-- Street Address --}}
-        <div class="form-group mb-4">
-           <input type="street-address" class="form-control" placeholder="Street Address"
-          id="street-address-signup" />
-        </div>
-  
-  {{!-- City --}}
-<div class="form-group mb-4">
-           <input type="city" class="form-control" placeholder="City"
-          id="city-signup" />
-        </div>
-
-  {{!-- State --}}
-<div class="form-group mb-4">
-           <input type="state" class="form-control" placeholder="State"
-          id="state-signup" />
-        </div>
-        
-  {{!-- Zip --}}
-<div class="form-group mb-4">
-           <input type="zip" class="form-control" placeholder="Zip"
-          id="zip-signup" />
-        </div>
-
-  {{!-- Email --}}
-<div class="form-group mb-4">
-           <input type="email" class="form-control" placeholder="Email"
-          id="email-signup" />
-        </div>
+    {{!-- City --}}
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="City" aria-label="City">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="state" aria-label="state">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="zip" aria-label="zip">
+      </div>
+    </div>
+    <br>
+    {{!-- Email --}}
+    <div class="form-group mb-4">
+      <input type="email" class="form-control" placeholder="Email" id="email-signup" />
+    </div>
 
         <input type="submit" value="Sign Up!" class="btn btn-primary w-100 mb-1" />
         <p>Have An Account? <a href="/login" class="h6">Login</a></p>
