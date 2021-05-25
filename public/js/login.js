@@ -22,4 +22,3 @@ document
   .querySelector("#login-form")
   .addEventListener("submit", loginFormHandler);
 
-console.log("succesfully linked!!!");

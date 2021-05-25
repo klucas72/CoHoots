@@ -31,9 +31,9 @@ const signupFormHandler = async (event) => {
       body: JSON.stringify({
         username,
         password,
-        firstName,
-        lastName,
-        streetAddress,
+        first_name: firstName,
+        last_name: lastName,
+        street_address: streetAddress,
         city,
         state,
         zip,
