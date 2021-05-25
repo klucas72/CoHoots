@@ -1,4 +1,6 @@
-
+*{
+  box-sizing: border-box;
+}
 
 .card-placement{
   display: flex; 
