@@ -1,13 +1,12 @@
 const router = require("express").Router();
+const ensureAuthenticated = require("../utils/auth");
 
-
-
-router.get("/", (req, res) => {
-    res.render("dashboard-uploadButton");
+router.get("/", ensureAuthenticated, (req, res) => {
+  res.render("dashboard-uploadButton");
 });
 
-router.get("/upload", (req, res) => {
-    res.render("dashboard-submitUpload")
-})
+router.get("/upload", ensureAuthenticated, (req, res) => {
+  res.render("dashboard-submitUpload");
+});
 
 module.exports = router;

@@ -16,11 +16,11 @@
     {{!-- First Name--}}
     <div class="row">
       <div class="col">
-        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+        <input type="text" class="form-control" placeholder="First name" id="first-name-signup" aria-label="First name">
       </div>
       {{!-- Last Name --}}
       <div class="col">
-        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+        <input type="text" class="form-control" placeholder="Last name" id="last-name-signup" aria-label="Last name">
       </div>
     </div>
     <br>
@@ -32,13 +32,13 @@
     {{!-- City --}}
     <div class="row">
       <div class="col">
-        <input type="text" class="form-control" placeholder="City" aria-label="City">
+        <input type="text" class="form-control" placeholder="City" id="city-signup" aria-label="City">
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="state" aria-label="state">
+        <input type="text" class="form-control" placeholder="state" id="state-signup" aria-label="state">
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="zip" aria-label="zip">
+        <input type="text" class="form-control" placeholder="zip" id="zip-signup" aria-label="zip">
       </div>
     </div>
     <br>
@@ -47,7 +47,8 @@
       <input type="email" class="form-control" placeholder="Email" id="email-signup" />
     </div>
 
-    <input type="submit" value="Sign Up!" class="btn btn-primary w-100 mb-1" />
-    <p>Have An Account? <a href="/login" class="h6">Login</a></p>
-  </form>
+        <input type="submit" value="Sign Up!" class="btn btn-primary w-100 mb-1" />
+        <p>Have An Account? <a href="/login" class="h6">Login</a></p>
+    </form>
 </div>
+<script src="/js/signup.js"></script>

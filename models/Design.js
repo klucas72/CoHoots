@@ -12,14 +12,14 @@ Design.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    imageId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "image",
-        key: "id",
-      },
-    },
+    // imageId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: "image",
+    //     key: "id",
+    //   },
+    // },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
