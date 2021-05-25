@@ -7,6 +7,10 @@ router.get("/", (req, res) => {
 
 // Login route
 router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
+    return;
+  }
   res.render("login");
 });
 
