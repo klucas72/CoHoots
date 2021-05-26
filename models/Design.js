@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection.js");
 
-class Design extends Model {}
+class Design extends Model { }
 
 Design.init(
   {
@@ -35,6 +35,11 @@ Design.init(
         isDecimal: true,
       },
     },
+    image_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+
+    }
   },
   {
     sequelize,
