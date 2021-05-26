@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Design, User } = require('../../models');
-// const ensureAuthenticated = require('../../utils/auth');
+const ensureAuthenticated = require('../../utils/auth');
 
 
 
@@ -46,7 +46,23 @@ router.get('/find/:id', (req, res) => {
   });
 });
 
+router.delete('/:id', ensureAuthenticated, async (req, res) => {
+  try {
+    const [affectedRows] = Design.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
 
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 
