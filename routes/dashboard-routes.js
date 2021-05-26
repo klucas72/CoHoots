@@ -10,16 +10,14 @@ const { Design, User } = require('../models');
 router.get('/', async (req, res) => {
   try {
     const designData = await Design.findAll({
-      include: [User],
       where: {
         // userId: req.session.userId,
-        user_id: 2,
+        user_id: 1,
       },
     });
   const designs = designData.map((design) => design.get({ plain: true }));
-  res.render("dashboard-uploadButton", {designs})
-  console.log(designs);
-  // res.json(designs);
+  // res.render("dashboard-uploadButton")
+  res.json(designs);
   } catch (err) {
     res.redirect('login')
   }
