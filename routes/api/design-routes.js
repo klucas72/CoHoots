@@ -5,6 +5,7 @@ const { Design, User } = require('../../models');
 
 
 // Create a new design
+// Once upload design form is completed, we will need to add the ensureAuthenticated and get user_id from the Sessions object
 router.post("/new", async (req, res) => {
   try {
     const designInfo = await Design.create({
@@ -37,7 +38,16 @@ router.get('/', async (req, res) => {
 
 
 // Create a route to get 1 Design by id
-
+router.get('/find/:id', (req, res) => {
+  Design.findAll({
+    where: {
+      id: req.params.id
+    }
+  }).then(design => {
+  res.json(design);
+  // res.render('');
+  });
+});
 
 
 
