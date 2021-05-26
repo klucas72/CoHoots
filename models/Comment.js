@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection.js");
 
-class Comment extends Model {}
+class Comment extends Model { }
 
 Comment.init(
   {
@@ -11,6 +11,10 @@ Comment.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+    },
+    body: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     designId: {
       type: DataTypes.INTEGER,
