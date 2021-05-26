@@ -7,13 +7,13 @@ const { Design, User } = require('../models');
 // });
 
 // create a route to get all the designs for 1 user
-router.get('/', async (req, res) => {
+router.get('/', ensureAuthenticated, async (req, res) => {
   try {
     const designData = await Design.findAll({
       include: [User],
       where: {
-        // userId: req.session.userId,
-        user_id: 1,
+        userId: req.session.userId,
+        // user_id: 1,
       },
     });
   const designs = designData.map((design) => design.get({ plain: true }));
