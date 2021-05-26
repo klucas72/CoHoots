@@ -19,22 +19,18 @@ router.post("/new", async (req, res) => {
   }
 });
 
-
-
 // Create a route to GET ALL designs
 router.get('/', async (req, res) => {
-    try {
-      const designData = await Design.findAll();
-  
-      const designs = designData.map((design) => design.get({ plain: true }));
-      res.json(designs);
-      // res.render('', { designs });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+  try {
+    const designData = await Design.findAll();
 
-
+    const designs = designData.map((design) => design.get({ plain: true }));
+    res.json(designs);
+    // res.render('', { designs });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 // Create a route to get 1 Design by id
