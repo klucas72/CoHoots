@@ -21,17 +21,17 @@ router.post("/new", async (req, res) => {
 });
 
 // Create a route to GET ALL designs
-router.get('/', async (req, res) => {
-  try {
-    const designData = await Design.findAll();
+// router.get('/', async (req, res) => {
+//   try {
+//     const designData = await Design.findAll();
 
-    const designs = designData.map((design) => design.get({ plain: true }));
-    res.json(designs);
-    // res.render('', { designs });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     const designs = designData.map((design) => design.get({ plain: true }));
+//     res.json(designs);
+//     // res.render('', { designs });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 
 // Create a route to get 1 Design by id
@@ -46,7 +46,7 @@ router.get('/find/:id', (req, res) => {
   });
 });
 
-router.delete('/:id', ensureAuthenticated, async (req, res) => {
+router.delete('/:id',ensureAuthenticated, async (req, res) => {
   try {
     const [affectedRows] = Design.destroy({
       where: {
