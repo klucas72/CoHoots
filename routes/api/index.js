@@ -8,7 +8,7 @@ const imageRoutes = require("./image-routes");
 
 router.use("/users", userRoutes);
 router.use("/likes", likeRoutes);
-router.use("/designs", designRoutes);
+router.use("/designs", designRoutes); // /api/designs
 router.use("/comments", commentRoutes);
 router.use("/images", imageRoutes);
 
