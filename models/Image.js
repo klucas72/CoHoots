@@ -8,21 +8,15 @@ Image.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
+      allowNull: false,
       autoIncrement: true,
     },
-    imageUrl: {
+    name: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
-    designId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "design",
-        key: "id",
-      },
+    data: {
+      type: DataTypes.BLOB("long"),
     },
   },
   {

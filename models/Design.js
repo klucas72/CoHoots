@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection.js");
 
-
 class Design extends Model {}
 
 Design.init(
@@ -12,7 +11,7 @@ Design.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    image_url: {
+    imageId: {
       type: DataTypes.STRING,
       allowNull: false,
     },
