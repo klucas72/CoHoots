@@ -17,7 +17,7 @@
 
 .card-middle{
   display: flex; 
-  justify-content: space-between 
+  justify-content: space-between
 }
 
 .card-bottom {
@@ -33,3 +33,7 @@
   padding-right: 3%; 
   padding-bottom: 3%;
 }
+
+img {    
+  height: 300px;  
+  }

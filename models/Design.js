@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
-
 const sequelize = require("../config/connection.js");
+
 
 class Design extends Model {}
 
@@ -16,7 +16,7 @@ Design.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -28,7 +28,7 @@ Design.init(
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
-        isDecimal: true,
+        isDecimal: false,
       },
     },
   },
