@@ -45,17 +45,13 @@ router.get("/find/:id", (req, res) => {
 
 router.delete("/:id", ensureAuthenticated, async (req, res) => {
   try {
-    const [affectedRows] = Design.destroy({
+    const designData = Design.destroy({
       where: {
         id: req.params.id,
       },
     });
 
-    if (affectedRows > 0) {
-      res.status(200).end();
-    } else {
-      res.status(404).end();
-    }
+    res.json(designData);
   } catch (err) {
     res.status(500).json(err);
   }
