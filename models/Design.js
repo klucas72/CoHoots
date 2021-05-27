@@ -23,13 +23,13 @@ Design.init(
         key: "id",
       },
     },
-    price: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-      validate: {
-        isDecimal: false,
-      },
-    },
+    // price: {
+    //   type: DataTypes.DECIMAL,
+    //   allowNull: false,
+    //   validate: {
+    //     isDecimal: false,
+    //   },
+    // },
   },
   {
     sequelize,
