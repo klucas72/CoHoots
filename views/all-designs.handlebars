@@ -1,8 +1,8 @@
 {{!-- <h1 class="text-center">ALL EXISTING DESIGNS</h1> --}}
 
-<div class="row">
-    {{#each designs}}
-    <input type="hidden" name="design-id" value="{{id}}" />
+<div class="row container-fluid">
+    {{#each designs as |design|}}
+    <input type="hidden" id="design-id" value="{{design.id}}" />
     <div class="col-md-3">
         <div class="card-placement">
             <div class="card" style="width: 18rem;">
@@ -13,21 +13,21 @@
                         <span>8:15PM</span>
                     </div>
                 </ul>
-                    <img src="{{image_url}}" class="card-img-top" alt="...">
+                    <img src="{{design.image_url}}" class="card-img-top" alt="...">
                 {{!-- <div class="card-body">
                     <div class="card-middle">
                         <span>5</span>
-                        <span>Cost ${{price}}</span>
-                        <span><i class="bi bi-trash" id="deleteBtn"></i></span>
+                        <span>Cost ${{design.price}}</span>
+                        <span><i class="bi bi-trash" id="delete-btn"></i></span>
                     </div>
-                </div> --}}
-                {{!-- <ul class="list-group list-group-flush">
+                </div>
+                <ul class="list-group list-group-flush">
                     <div class="card-bottom">
                         <span><a href="#">View comments</a></span>
                         <span><i class="bi bi-chat-left-dots"></i></span>
                     </div>
-                </ul>  --}}
-            </div>
+                </ul> 
+            </div> --}}
         </div>
     </div>
     {{/each}}

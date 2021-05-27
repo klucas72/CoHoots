@@ -2,30 +2,41 @@
     <button type="button" class="btn btn-primary"><a href="dashboard/upload" style="text-decoration: none; color: inherit;">Upload a Design</a></button>
 </div>
 
+<<<<<<< HEAD:views/dashboard-uploadButton.handlebars
 <div class="row">
     {{#each designs}}
     <input type="hidden" name="design-id" value="{{id}}" />
+=======
+<div class="row container-fluid">
+    {{#each designs as |design|}}
+    <input type="hidden" id="design-id" value="{{design.id}}" />
+>>>>>>> 733ebe99947473ab1ef9468b3b71aee287eedae1:views/all-user-designs.handlebars
     <div class="col-md-3">
         <div class="card-placement">
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <div class="top-card">
-                        <span>Posted by {{user.username}}</span>
+                        <span>Uploaded:</span>
                         <span>5/18/2021</span>
                         <span>8:15PM</span>
                     </div>
                 </ul>
-                    <img src="{{image_url}}" class="card-img-top alt="...">
+                    <img src="{{design.image_url}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <div class="card-middle">
                         <span>5</span>
+<<<<<<< HEAD:views/dashboard-uploadButton.handlebars
                         <span>Cost ${{price}}</span>
                         <span><i type="icon" class="bi bi-trash" id="deleteBtn"></i></span>
+=======
+                        <span>Cost ${{design.price}}</span>
+                        <span><i class="bi bi-trash" id="delete-btn"></i></span>
+>>>>>>> 733ebe99947473ab1ef9468b3b71aee287eedae1:views/all-user-designs.handlebars
                     </div>
                 </div>
                 <ul class="list-group list-group-flush">
                     <div class="card-bottom">
-                        <span><a href="#">View Comments</a></span>
+                        <span><a href="#">View comments</a></span>
                         <span><i class="bi bi-chat-left-dots"></i></span>
                     </div>
                 </ul> 
@@ -35,7 +46,11 @@
     {{/each}}
 </div>
 
+<<<<<<< HEAD:views/dashboard-uploadButton.handlebars
 
 <script src="/js/logout.js"></script>
 <script src="/js/deleteDesign.js"></script>
 
+=======
+<script src="/js/deleteDesign.js"></script>
+>>>>>>> 733ebe99947473ab1ef9468b3b71aee287eedae1:views/all-user-designs.handlebars
