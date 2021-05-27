@@ -1,17 +1,7 @@
-const designId = document.querySelector('input[name="design-id"]').value;
+const designId = document.querySelector('#design-id').value;
 
-
-const formHandler = async function(event) {
-  event.preventDefault();
-
-  await fetch(`/api/post/${designId}`, {
-    method: 'DELETE',
-  });
-  document.location.replace('/dashboard');
-};
-
-const deleteClickHandler = async function() {
-  await fetch(`/api/post/${postId}`, {
+const deleteDesignHandler = async function() {
+  await fetch(`/api/designs/${designId}`, {
     method: 'DELETE'
   });
 
@@ -21,6 +11,6 @@ const deleteClickHandler = async function() {
 
 document
   .querySelector('#delete-btn')
-  .addEventListener('click', formHandler);
+  .addEventListener('click', deleteDesignHandler);
 
 
