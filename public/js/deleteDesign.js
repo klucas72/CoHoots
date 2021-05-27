@@ -1,5 +1,6 @@
-const designId = document.querySelector('input[name="design-id"]').value;
 
+const designId = document.querySelector('input[name="design-id"]').value;
+const deleteBtn = document.getElementById('deleteBtn');
 
 const formHandler = async function(event) {
   event.preventDefault();
@@ -19,8 +20,6 @@ const deleteClickHandler = async function() {
 };
 
 
-document
-  .querySelector('#delete-btn')
-  .addEventListener('click', formHandler);
+deleteBtn.addEventListener('click', formHandler);
 
 
