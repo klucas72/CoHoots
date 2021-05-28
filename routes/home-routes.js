@@ -23,6 +23,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+
 // Login route
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
@@ -36,5 +37,8 @@ router.get("/login", (req, res) => {
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
+
+
+
 
 module.exports = router;

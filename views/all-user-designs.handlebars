@@ -1,34 +1,30 @@
+
 <div style="margin-top: 3%; display: flex; justify-content: center;">
     <button type="button" class="btn btn-primary"><a href="dashboard/upload" style="text-decoration: none; color: inherit;">Upload a Design</a></button>
 </div>
 
-<div class="row container-fluid">
+<div class="row container-fluid" style="margin-top: 5%;">
     {{#each designs as |design|}}
     <input type="hidden" id="design-id" value="{{design.id}}" />
     <div class="col-md-3">
         <div class="card-placement">
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
-                    <div class="top-card">
-                        <span>Uploaded:</span>
-                        <span>5/18/2021</span>
+                    <div style="display: flex; justify-content: space-evenly; padding-top: 3%; padding-bottom: 3%;">
+                        <span>Uploaded: 5/18/2021</span>
+                        {{!-- <span>5/18/2021</span> --}}
                         <span>8:15PM</span>
                     </div>
                 </ul>
                     <img src="data:image/jpeg;base64,{{design.data}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <div class="card-middle">
+                    <div style="display: flex; justify-content: space-between">
                         <span>5</span>
                         <span>Cost ${{design.price}}</span>
                         <span><i class="bi bi-trash" id="delete-btn"></i></span>
                     </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <div class="card-bottom">
-                        <span><a href="#">View comments</a></span>
-                        <span><i class="bi bi-chat-left-dots"></i></span>
-                    </div>
-                </ul> 
+ 
             </div>
         </div>
     </div>

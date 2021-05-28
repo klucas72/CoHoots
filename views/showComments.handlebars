@@ -1,0 +1,36 @@
+    <div class="row container-fluid" style="margin-top: 5%;">
+    <input type="hidden" id="design-id" value="{{designs.id}}" />
+    <div class="col-md-3">
+        <div class="card-placement">
+            <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    <div style="display: flex; justify-content: space-evenly; padding-top: 3%; padding-bottom: 3%;">
+                        <span>Uploaded By: {{designs.user.username}}</span>
+                    </div>
+                </ul>
+                    <img src="{{designs.image_url}}" class="card-img-top" alt="..." style="height: 300px;">
+               <ul class="list-group list-group-flush">
+                    <div style="display: flex; justify-content: space-between; padding: 3%;">
+
+                    </div>
+                </ul> 
+                {{#each designs.comments}}
+                     <div class="border" style="background-color: #ECF0F1;">
+                        <div class="card-bottom">
+                            <span>{{user.username}}</span>
+                             <span>9:30PM</span>
+                    </div>
+                    <div style="padding-left: 3%;">
+                        {{body}}
+                    </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/deleteDesign.js"></script>
+
