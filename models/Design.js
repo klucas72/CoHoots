@@ -11,10 +11,6 @@ Design.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    imageId: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -23,13 +19,9 @@ Design.init(
         key: "id",
       },
     },
-    // price: {
-    //   type: DataTypes.DECIMAL,
-    //   allowNull: false,
-    //   validate: {
-    //     isDecimal: false,
-    //   },
-    // },
+    data: {
+      type: DataTypes.BLOB("long"),
+    },
   },
   {
     sequelize,

@@ -13,7 +13,7 @@
                         <span>8:15PM</span>
                     </div>
                 </ul>
-                    <img src="{{design.image_url}}" class="card-img-top" alt="...">
+                    <img src="data:image/jpeg;base64,{{design.data}}" class="card-img-top" id = "{{design.id}}" alt="...">
                 {{!-- <div class="card-body">
                     <div class="card-middle">
                         <span>5</span>
@@ -30,6 +30,7 @@
             </div> --}}
         </div>
     </div>
+    
     {{/each}}
 </div>
 

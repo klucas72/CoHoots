@@ -1,23 +1,31 @@
 const fs = require("fs");
 const router = require("express").Router();
-const { Image } = require("../../models");
+const { Design, User } = require("../../models");
 const multer = require("multer");
-const upload = multer({ dest: "upload" });
+const upload = multer({ dest: "upload", encoding: "base64" });
+const ensureAuthenticated = require("../../utils/auth");
 
 //post new image
-router.post("/", upload.single("file"), async (req, res) => {
-  const file = fs.readFileSync(`upload/${req.file.filename}`);
-  try {
-    const response = await Image.create({
-      name: req.file.filename,
-      data: file,
-    });
+router.post(
+  "/",
+  upload.single("file"),
+  ensureAuthenticated,
+  async (req, res) => {
+    const file = fs.readFileSync(`upload/${req.file.filename}`);
+    const base64data = new Buffer(file, "binary").toString("base64");
+    try {
+      const response = await Design.create({
+        user_id: req.session.userId,
+        name: req.file.filename,
+        data: base64data,
+      });
 
-    res.status(200).json({ message: "Image saved" });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+      res.redirect("../dashboard");
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
   }
-});
+);
 
 module.exports = router;

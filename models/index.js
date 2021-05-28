@@ -1,7 +1,7 @@
 // import models
 // const Comment = require("./Comment");
 const Design = require("./Design");
-const Image = require("./Image");
+// const Image = require("./Image");
 // const Like = require("./Like");
 const User = require("./User");
 
@@ -27,11 +27,11 @@ User.hasMany(Design, {
 //   onDelete: "CASCADE",
 // });
 
-// each design has one image
-Design.hasOne(Image, {
-  foreignKey: "id",
-  onDelete: "CASCADE",
-});
+// // each design has one image
+// Design.hasOne(Image, {
+//   foreignKey: "id",
+//   onDelete: "CASCADE",
+// });
 
 // a design can have many likes through the designId foreign key on model: Like, key: designId
 // Design.hasMany(Like, {
@@ -45,7 +45,7 @@ Design.hasOne(Image, {
 module.exports = {
   // Comment,
   Design,
-  Image,
+  // Image,
   // Like,
   User,
 };
