@@ -1,0 +1,12 @@
+{{#if comments}}
+    {{#each comments}}
+        <div class="border" style="background-color: #ECF0F1;">
+            <div class="card-bottom">
+                <span>{{user.username}}</span>
+            </div>
+            <div>
+                {{body}}
+            </div>
+        </div>
+    {{/each}}
+{{/if}}

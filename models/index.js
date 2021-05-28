@@ -17,6 +17,10 @@ Design.belongsTo(User, {
   onDelete: "CASCADE",
 });
 
+Design.hasMany(Comment, {
+  foreignKey: 'designId'
+})
+
 User.hasMany(Design, {
   foreignKey: "id"
 })
