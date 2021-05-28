@@ -1,15 +1,15 @@
 // import models
-// const Comment = require("./Comment");
+const Comment = require("./Comment");
 const Design = require("./Design");
 // const Image = require("./Image");
 // const Like = require("./Like");
 const User = require("./User");
 
 // comments belong to users
-// Comment.belongsTo(User, {
-//   foreignKey: "userId",
-//   onDelete: "CASCADE",
-// });
+Comment.belongsTo(User, {
+  foreignKey: "userId",
+  onDelete: "CASCADE",
+});
 
 // posts belong to users
 Design.belongsTo(User, {
@@ -44,7 +44,7 @@ User.hasMany(Design, {
 
 
 module.exports = {
-  // Comment,
+  Comment,
   Design,
   // Image,
   // Like,
