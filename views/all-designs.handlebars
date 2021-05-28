@@ -1,36 +1,28 @@
-{{!-- <h1 class="text-center">ALL EXISTING DESIGNS</h1> --}}
 
-<div class="row container-fluid">
+<div style="margin-top: 3%; display: flex; justify-content: center;">
+    <button type="button" class="btn btn-primary"><a href="dashboard/upload" style="text-decoration: none; color: inherit;">Upload a Design</a></button>
+</div>
+
+<div class="row container-fluid" style="margin-top: 5%;">
     {{#each designs as |design|}}
     <input type="hidden" id="design-id" value="{{design.id}}" />
     <div class="col-md-3">
         <div class="card-placement">
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
-                    <div class="top-card">
-                        <span>Posted by {{user.username}}</span>
-                        <span>5/18/2021</span>
-                        <span>8:15PM</span>
+                    <div style="display: flex; justify-content: space-evenly; padding-top: 3%; padding-bottom: 3%;">
+                        <span>Uploaded By: {{user.username}}</span>
                     </div>
                 </ul>
-                    <img src="{{design.image_url}}" class="card-img-top" alt="...">
-                {{!-- <div class="card-body">
-                    <div class="card-middle">
-                        <span>5</span>
-                        <span>Cost ${{design.price}}</span>
-                        <span><i class="bi bi-trash" id="delete-btn"></i></span>
-                    </div>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <div class="card-bottom">
-                        <span><a href="#">View comments</a></span>
-                        <span><i class="bi bi-chat-left-dots"></i></span>
-                    </div>
-                </ul> 
-            </div> --}}
+                    <img src="{{design.image_url}}" class="card-img-top" alt="..." style="height: 300px;">
+ 
+            </div>
         </div>
     </div>
     {{/each}}
 </div>
+
+<script src="/js/deleteDesign.js"></script>
+
 
 <script src="/js/deleteDesign.js"></script>
