@@ -2,10 +2,10 @@
 
 <div class="row container-fluid">
     {{#each designs as |design|}}
-    <input type="hidden" id="design-id" value="{{design.id}}" />
+    {{!-- <input type="hidden" id={{design.id}} value={{design.id}} /> --}}
     <div class="col-md-3">
         <div class="card-placement">
-            <div class="card" style="width: 18rem;">
+            <div class="card" id={{design.id}} style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <div class="top-card">
                         <span>Posted by {{user.username}}</span>
@@ -33,4 +33,3 @@
     {{/each}}
 </div>
 
-<script src="/js/deleteDesign.js"></script>

@@ -1,16 +1,24 @@
-const designId = document.querySelector('#design-id').value;
+// var deleteDesignHandler = async (designId) => {
+//   await fetch(`/api/designs/${designId}`, {
+//     method: "DELETE",
+//   });
+// };
 
-const deleteDesignHandler = async function() {
-  await fetch(`/api/designs/${designId}`, {
-    method: 'DELETE'
-  });
+// var deleteBtnArray = document.querySelectorAll(".delete-btn");
+const tshirtEl = $("#tshirt");
 
-  document.location.replace('/dashboard');
+tshirtEl.click("delete-btn", function(event) {
+  console.log(event.target);
+  const buttonDelete = $(event.target);
+  const cardId = buttonDelete.attr("id");
+  console.log(`My id is ${cardId}`);
+  $.ajax({
+    url: `/api/designs/${cardId}`,
+    type: "DELETE",
+  }).then((data) => deleteCard(cardId));
+});
+
+const deleteCard = (id) => {
+  const cardDelete = $("#design-card-" + id);
+  cardDelete.remove();
 };
-
-
-document
-  .querySelector('#delete-btn')
-  .addEventListener('click', deleteDesignHandler);
-
-

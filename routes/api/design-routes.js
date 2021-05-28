@@ -45,7 +45,7 @@ router.get("/find/:id", (req, res) => {
 
 router.delete("/:id", ensureAuthenticated, async (req, res) => {
   try {
-    const designData = Design.destroy({
+    const designData = await Design.destroy({
       where: {
         id: req.params.id,
       },

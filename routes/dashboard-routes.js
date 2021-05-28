@@ -15,7 +15,15 @@ router.get("/", ensureAuthenticated, async (req, res) => {
         user_id: 1,
       },
     });
-    const designs = designData.map((design) => design.get({ plain: true }));
+    const designs = designData.map((design) => {
+      const item = design.get({ plain: true });
+      return { ...item, cardId: "design-card-" + item.id };
+    });
+
+    //temporary fix for handlebars
+    // const designsWithId = designs.map((design) => {
+    //   return { ...design, cardId: "design-card-" + design.id };
+    // });
     res.render("all-user-designs", { designs });
     // res.json(designs);
   } catch (err) {

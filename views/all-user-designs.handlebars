@@ -2,12 +2,12 @@
     <button type="button" class="btn btn-primary"><a href="dashboard/upload" style="text-decoration: none; color: inherit;">Upload a Design</a></button>
 </div>
 
-<div class="row container-fluid">
+<div class="row container-fluid" id="tshirt">
     {{#each designs as |design|}}
-    <input type="hidden" id="design-id" value="{{design.id}}" />
+    {{!-- <input type="hidden" id="design-id" value="{{design.id}}" /> --}}
     <div class="col-md-3">
         <div class="card-placement">
-            <div class="card" style="width: 18rem;">
+            <div class="card" id={{design.cardId}} style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <div class="top-card">
                         <span>Uploaded:</span>
@@ -20,7 +20,7 @@
                     <div class="card-middle">
                         <span>5</span>
                         <span>Cost ${{design.price}}</span>
-                        <span><i class="bi bi-trash" id="delete-btn"></i></span>
+                        <span><i class="bi bi-trash delete-btn" id={{design.id}}></i></span>
                     </div>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -34,5 +34,7 @@
     </div>
     {{/each}}
 </div>
-
-<script src="/js/deleteDesign.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
