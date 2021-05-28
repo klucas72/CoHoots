@@ -20,25 +20,6 @@ router.post('/', async (req, res) => {
 })
 
 
-// Route to get all comments based on a design
-// router.get("/:id", async (req, res) => {
-//     try {
-//         const commentData = await Comment.findAll({
-//             include: [User],
-//             where: {
-//                 design_id: req.params.id
-//             },
-//         });
-//         const comments = commentData.map((comment) => comment.get({ plain: true }));
-//         // res.json(comments);
-//         // const commentContent = comments.map((com) => com.body);
-//         // console.log(commentContent);
-//         res.render('showComments', { comments });
-//     } catch (err) {
-//         res.status(500);
-//     }
-// });
-
 
 // Route to get all comments based on a design 2ND ATTEMPT
 router.get('/:id', async (req, res) => {
