@@ -4,7 +4,7 @@ const ensureAuthenticated = require("../../utils/auth");
 
 
 // Route to create a comment
-router.post('/', async (req, res) => {
+router.post('/', ensureAuthenticated, async (req, res) => {
     try {
         const newComment = await Comment.create({
             ...req.body,
@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 
 
 
-// Route to get all comments based on a design 2ND ATTEMPT
+// Route to get all comments based on a design
 router.get('/:id', async (req, res) => {
     try {
       const designData = await Design.findByPk(req.params.id, {
