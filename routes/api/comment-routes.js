@@ -21,27 +21,49 @@ router.post('/', async (req, res) => {
 
 
 // Route to get all comments based on a design
-router.get("/:id", async (req, res) => {
+// router.get("/:id", async (req, res) => {
+//     try {
+//         const commentData = await Comment.findAll({
+//             include: [User],
+//             where: {
+//                 design_id: req.params.id
+//             },
+//         });
+//         const comments = commentData.map((comment) => comment.get({ plain: true }));
+//         // res.json(comments);
+//         // const commentContent = comments.map((com) => com.body);
+//         // console.log(commentContent);
+//         res.render('showComments', { comments });
+//     } catch (err) {
+//         res.status(500);
+//     }
+// });
+
+
+// Route to get all comments based on a design 2ND ATTEMPT
+router.get('/:id', async (req, res) => {
     try {
-        const commentData = await Comment.findAll({
+      const designData = await Design.findByPk(req.params.id, {
+        include: [
+          User,
+          {
+            model: Comment,
             include: [User],
-            where: {
-                design_id: req.params.id
-            },
-        });
-        const comments = commentData.map((comment) => comment.get({ plain: true }));
-        // res.json(comments);
-        // const commentContent = comments.map((com) => com.body);
-        // console.log(commentContent);
-        res.render('showComments', { comments });
+          },
+        ],
+      });
+  
+      if (designData) {
+        const designs = designData.get({ plain: true });
+        // res.json(designs);
+        res.render('showComments', { designs });
+      } else {
+        res.status(404).end();
+      }
     } catch (err) {
-        res.status(500);
+      res.status(500).json(err);
     }
-});
-
-
-
-
+  });
 
 
 
