@@ -26,7 +26,6 @@ router.get("/:id", async (req, res) => {
     try {
         const commentData = await Comment.findAll({
             where: {
-                // user_id: req.session.userId,
                 design_id: req.params.id
             },
         });
