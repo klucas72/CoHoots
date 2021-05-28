@@ -61,8 +61,9 @@ router.post("/", async (req, res) => {
   try {
     const newDesign = await Design.create({
       ...req.body,
-      image_url: req.body.image_url,
-      //   userId: req.session.userId,
+      image_url:
+        "https://mir-s3-cdn-cf.behance.net/projects/404/6befd2105167985.Y3JvcCwyMTg3LDE3MTAsMCw2OTI.jpg",
+      user_id: req.session.userId,
       price: req.body.price,
     });
     res.json(newDesign);
