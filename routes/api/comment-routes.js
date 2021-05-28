@@ -3,7 +3,7 @@ const { Comment, Design, User } = require("../../models");
 const ensureAuthenticated = require("../../utils/auth");
 
 
-
+// Route to create a comment
 router.post('/', async (req, res) => {
     try {
         const newComment = await Comment.create({
@@ -20,14 +20,14 @@ router.post('/', async (req, res) => {
 })
 
 
-
-router.get("/", async (req, res) => {
+// Route to get all comments based on a design
+router.get("/:id", async (req, res) => {
     console.log(req.body);
     try {
         const commentData = await Comment.findAll({
             where: {
                 // user_id: req.session.userId,
-                design_id: 1,
+                design_id: req.params.id
             },
         });
         const comments = commentData.map((comment) => comment.get({ plain: true }));
