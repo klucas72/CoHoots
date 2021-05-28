@@ -12,6 +12,10 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    body: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     designId: {
       type: DataTypes.INTEGER,
       allowNull: false,
