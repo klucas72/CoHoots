@@ -1,10 +1,3 @@
-// var deleteDesignHandler = async (designId) => {
-//   await fetch(`/api/designs/${designId}`, {
-//     method: "DELETE",
-//   });
-// };
-
-// var deleteBtnArray = document.querySelectorAll(".delete-btn");
 const tshirtEl = $("#tshirt");
 
 tshirtEl.click("delete-btn", function(event) {
