@@ -17,9 +17,13 @@ Design.belongsTo(User, {
   onDelete: "CASCADE",
 });
 
-User.hasMany(Design, {
-  foreignKey: "id"
+Design.hasMany(Comment, {
+  foreignKey: 'designId'
 })
+
+User.hasMany(Design, {
+  foreignKey: "id",
+});
 
 // likes belong to users
 // Like.belongsTo(User, {
@@ -29,7 +33,7 @@ User.hasMany(Design, {
 
 // // each design has one image
 // Design.hasOne(Image, {
-//   foreignKey: "imageId",
+//   foreignKey: "id",
 //   onDelete: "CASCADE",
 // });
 
@@ -41,7 +45,6 @@ User.hasMany(Design, {
 // Design.hasMany(Comment, {
 //   foreignKey: "designId",
 // });
-
 
 module.exports = {
   Comment,

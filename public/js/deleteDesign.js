@@ -1,26 +1,18 @@
-const designId = document.querySelector('input[name="design-id"]').value;
+const tshirtEl = $("#tshirt");
 
+tshirtEl.click("delete-btn", function(event) {
+  console.log(event.target);
+  const buttonDelete = $(event.target);
+  const cardId = buttonDelete.attr("id");
+  console.log(`My id is ${cardId}`);
+  $.ajax({
+    url: `/api/designs/${cardId}`,
+    type: "DELETE",
+  }).then((data) => deleteCard(cardId));
+});
 
-const formHandler = async function(event) {
-  event.preventDefault();
-
-  await fetch(`/api/post/${designId}`, {
-    method: 'DELETE',
-  });
-  document.location.replace('/dashboard');
+const deleteCard = (id) => {
+  const cardDelete = $("#design-card-" + id);
+  cardDelete.remove();
 };
-
-const deleteClickHandler = async function() {
-  await fetch(`/api/post/${postId}`, {
-    method: 'DELETE'
-  });
-
-  document.location.replace('/dashboard');
-};
-
-
-document
-  .querySelector('#delete-btn')
-  .addEventListener('click', formHandler);
-
 

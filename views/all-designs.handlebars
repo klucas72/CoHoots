@@ -1,36 +1,37 @@
-{{!-- <h1 class="text-center">ALL EXISTING DESIGNS</h1> --}}
 
-<div class="row">
-    {{#each designs}}
-    <input type="hidden" name="design-id" value="{{id}}" />
+<div style="margin-top: 3%; display: flex; justify-content: center;">
+    <button type="button" class="btn btn-primary"><a href="dashboard/upload" style="text-decoration: none; color: inherit;">Upload a Design</a></button>
+</div>
+
+<div class="row container-fluid" style="margin-top: 5%;">
+    {{#each designs as |design|}}
+    <input type="hidden" id="design-id" value="{{design.id}}" />
     <div class="col-md-3">
         <div class="card-placement">
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
-                    <div class="top-card">
-                        <span>Posted by {{user.username}}</span>
-                        <span>5/18/2021</span>
-                        <span>8:15PM</span>
+                    <div style="display: flex; justify-content: space-evenly; padding-top: 3%; padding-bottom: 3%;">
+                        <span>Uploaded By: {{user.username}}</span>
                     </div>
                 </ul>
-                    <img src="{{image_url}}" class="card-img-top" alt="...">
-                {{!-- <div class="card-body">
-                    <div class="card-middle">
-                        <span>5</span>
-                        <span>Cost ${{price}}</span>
-                        <span><i class="bi bi-trash" id="deleteBtn"></i></span>
+                <img src="data:image/jpeg;base64,{{design.data}}" class="card-img-top" id = "{{design.id}}" alt="..." style="height: 300px;">
+                <ul class="list-group list-group-flush">
+                    <div style="display: flex; justify-content: space-between; padding: 3%;">
+                        <span><a href="/api/comments/{{design.id}}">View comments</a></span>
                     </div>
-                </div> --}}
-                {{!-- <ul class="list-group list-group-flush">
-                    <div class="card-bottom">
-                        <span><a href="#">View comments</a></span>
-                        <span><i class="bi bi-chat-left-dots"></i></span>
-                    </div>
-                </ul>  --}}
+                    <form id="commentForm">
+                        <input type="hidden" id="design-id" value="{{design.id}}" />
+                        <div class="input-group input-group-sm mb-3" style="padding-left:2%; padding-right:2%">
+                            <input type="text" id="comment-body" class="form-control" aria-label="Sizing example input" placeholder="Leave a Comment" aria-describedby="inputGroup-sizing-sm">
+                            <button type="submit" class="btn btn-light" style="margin-left: 2%">Send</button>
+                        </div>
+                    </form>
+                </ul> 
             </div>
         </div>
-    </div>
+    </div>  
     {{/each}}
 </div>
 
-<script src="/js/deleteDesign.js"></script>
+<script src="/js/comment.js"></script>
+
