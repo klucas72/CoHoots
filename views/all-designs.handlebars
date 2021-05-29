@@ -9,8 +9,8 @@
                         <span>Uploaded By: {{user.username}}</span>
                     </div>
                 </ul>
-                    <img src="{{design.image_url}}" class="card-img-top" alt="..." style="height: 300px;">
-               <ul class="list-group list-group-flush">
+                <img src="data:image/jpeg;base64,{{design.data}}" class="card-img-top" id = "{{design.id}}" alt="..." style="height: 300px;">
+                <ul class="list-group list-group-flush">
                     <div style="display: flex; justify-content: space-between; padding: 3%;">
                         <span><a href="/api/comments/{{design.id}}">View comments</a></span>
                     </div>
@@ -24,7 +24,7 @@
                 </ul> 
             </div>
         </div>
-    </div>
+    </div>  
     {{/each}}
 </div>
 
