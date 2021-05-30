@@ -24,8 +24,8 @@ Design.init(
     },
     price: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
-    }
+      allowNull: true,
+    },
   },
   {
     sequelize,
