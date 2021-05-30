@@ -5,7 +5,7 @@ const likeRoutes = require("./like-routes");
 const designRoutes = require("./design-routes");
 const commentRoutes = require("./comment-routes");
 const imageRoutes = require("./image-routes");
-const uploadRoutes = require("./upload");
+const uploadRoutes = require("./upload-routes");
 
 router.use("/users", userRoutes);
 router.use("/likes", likeRoutes);

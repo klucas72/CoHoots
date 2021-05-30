@@ -4,32 +4,19 @@ const ensureAuthenticated = require("../../utils/auth");
 
 // Create a new design
 // Once upload design form is completed, we will need to add the ensureAuthenticated and get user_id from the Sessions object
-router.post("/new", async (req, res) => {
-  console.log(req.body);
+router.post("/", async (req, res) => {
   try {
-    const designInfo = await Design.create({
+    const newDesign = await Design.create({
+      ...req.body,
       image_url: req.body.image_url,
-      user_id: req.body.user_id,
+      user_id: req.session.userId,
       price: req.body.price,
     });
-    res.json(designInfo);
+    res.json(newDesign);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
-
-// Create a route to GET ALL designs
-// router.get('/', async (req, res) => {
-//   try {
-//     const designData = await Design.findAll();
-
-//     const designs = designData.map((design) => design.get({ plain: true }));
-//     res.json(designs);
-//     // res.render('', { designs });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 // Create a route to get 1 Design by id
 router.get("/find/:id", (req, res) => {
@@ -39,7 +26,6 @@ router.get("/find/:id", (req, res) => {
     },
   }).then((design) => {
     res.json(design);
-    // res.render('');
   });
 });
 
@@ -52,21 +38,6 @@ router.delete("/:id", ensureAuthenticated, async (req, res) => {
     });
 
     res.json(designData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.post("/", async (req, res) => {
-  try {
-    const newDesign = await Design.create({
-      ...req.body,
-      image_url:
-        "https://mir-s3-cdn-cf.behance.net/projects/404/6befd2105167985.Y3JvcCwyMTg3LDE3MTAsMCw2OTI.jpg",
-      user_id: req.session.userId,
-      price: req.body.price,
-    });
-    res.json(newDesign);
   } catch (err) {
     res.status(500).json(err);
   }
