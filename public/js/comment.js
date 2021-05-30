@@ -1,31 +1,34 @@
-const commentForm = async function(event) {
-    event.preventDefault();
-  
-    var dID = document.getElementById("design-id");
-    const designId = dID.value;
-    var commentBody = document.getElementById("comment-body");
-    const body = commentBody.value;
-    const userId = 1;
+const designEl = $("#design");
 
-    if (body) {
-    console.log(body);
-      await fetch('/api/comments', {
-        method: 'POST',
-        body: JSON.stringify({
-            designId,
-            userId,
-            body
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+
+
+
+designEl.click((e) => {
+  let theTarget = e.target;
+
+  $("button").click(() => {
+    let body = $(theTarget).val();
+    alert(`Body: ${body}`);
+    const designId = theTarget.dataset.id;
+    alert(`Design ID: ${designId}`);
+    let userId = 1;
+    alert(`User ID: ${userId}`);
+
+     fetch('/api/comments', {
+      method: 'POST',
+      body: JSON.stringify({
+          designId,
+          userId,
+          body
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    document.location.reload();
+  })
+})
+
+    
   
-      document.location.reload();
-    }
-  };
-  
-  document
-    .querySelector('#commentForm')
-    .addEventListener('submit', commentForm);
   
