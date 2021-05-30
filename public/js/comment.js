@@ -8,11 +8,9 @@ designEl.click((e) => {
 
   $("button").click(() => {
     let body = $(theTarget).val();
-    alert(`Body: ${body}`);
     const designId = theTarget.dataset.id;
-    alert(`Design ID: ${designId}`);
-    let userId = 1;
-    alert(`User ID: ${userId}`);
+    // WARNING ----- THE userId IS CURRENTLY HARD-CODED
+    let userId = 4;
 
      fetch('/api/comments', {
       method: 'POST',
