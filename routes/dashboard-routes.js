@@ -11,8 +11,8 @@ router.get("/", ensureAuthenticated, async (req, res) => {
   try {
     const designData = await Design.findAll({
       where: {
-        // user_id: req.session.userId,
-        user_id: 1,
+        user_id: req.session.userId,
+        // user_id: 4,
       },
     });
     const designs = designData.map((design) => {

@@ -10,8 +10,8 @@ router.post('/', ensureAuthenticated, async (req, res) => {
             ...req.body,
             body: req.body.body,
             design_id: req.body.designId,
-            user_id: req.body.userId,
-            // user_id: req.session.user_id,
+            // user_id: req.body.userId,
+            user_id: req.session.userId,
         });
         res.json(newComment);
     } catch (err) {

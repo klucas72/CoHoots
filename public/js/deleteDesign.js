@@ -15,3 +15,4 @@ const deleteCard = (id) => {
   const cardDelete = $("#design-card-" + id);
   cardDelete.remove();
 };
+

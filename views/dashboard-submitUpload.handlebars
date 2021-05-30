@@ -1,4 +1,4 @@
-  
+{{!-- MY STUFF --}}
 <div style="display: flex; justify-content: center; margin-top: 4%;">
     <div class="card" style="width: 18rem;">
         <div class="card-body text-center">
@@ -15,134 +15,66 @@
   </div>
 </div>
 
+{{!-- BRAXTON'S STUFF --}}
             <div style="display: flex; justify-content: center; margin-top: 5%;">
                 <button type="button" class="btn btn-primary" id="submit-upload">Submit</button>
+<div class="container">
+      <div class="row">
+        <div class="col-sm-8 mt-3">
+
+          <form
+            class="mt-4"
+            action="/api/upload"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <input
+                type="file"
+                name="file"
+                accept='image/*'
+                id="input-files"
+                class="form-control-file border"
+              />
             </div>
+            <button type="submit" class="btn btn-primary" id="upload-btn">Submit</button>
+          </form>
         </div>
       </div>
+      <hr />
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="preview-images"></div>
+        </div>
+      </div>
+    </div>
+
+
 </div>
 
-{{!-- <div class="row container-fluid">
-    <div class="col-md-3">
-        <div class="card-placement">
-            <div class="card" style="width: 18rem;">
-                <ul class="list-group list-group-flush">
-                    <div class="top-card">
-                        <span>Posted by Brax</span>
-                        <span>5/18/2021</span>
-                        <span>8:15PM</span>
-                    </div>
-                </ul>
-                    <img src="/images/tshirt.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="card-middle">
-                        <span>5</span>
-                        <span>Cost $10</span>
-                        <span><i class="bi bi-trash"></i></span>
-                    </div>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <div class="card-bottom">
-                        <span>Click to view 3 comments</span>
-                        <span><i class="bi bi-chat-left-dots"></i></span>
-                    </div>
-                </ul> 
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-md-3">
-        <div class="card-placement">
-            <div class="card" style="width: 18rem;">
-                <ul class="list-group list-group-flush">
-                    <div class="top-card">
-                        <span>Posted by Brax</span>
-                        <span>5/18/2021</span>
-                        <span>8:15PM</span>
-                    </div>
-                </ul>
-                    <img src="/images/tshirt2.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="card-middle">
-                        <span>5</span>
-                        <span>Cost $10</span>
-                        <span><i class="bi bi-trash"></i></span>
-                    </div>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <div class="card-bottom">
-                        <span>Click to view 3 comments</span>
-                        <span><i class="bi bi-chat-left-dots"></i></span>
-                    </div>
-                </ul> 
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-md-3">
-        <div class="card-placement">
-            <div class="card" style="width: 18rem;">
-                <ul class="list-group list-group-flush">
-                    <div class="top-card">
-                        <span>Posted by Brax</span>
-                        <span>5/18/2021</span>
-                        <span>8:15PM</span>
-                    </div>
-                </ul>
-                    <img src="/images/tshirt3.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="card-middle">
-                        <span>5</span>
-                        <span>Cost $10</span>
-                        <span><i class="bi bi-trash"></i></span>
-                    </div>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <div class="card-bottom">
-                        <span>Click to view 3 comments</span>
-                        <span><i class="bi bi-chat-left-dots"></i></span>
-                    </div>
-                </ul> 
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="col-md-3">
-        <div class="card-placement">
-            <div class="card" style="width: 18rem;">
-                <ul class="list-group list-group-flush">
-                    <div class="top-card">
-                        <span>Posted by Brax</span>
-                        <span>5/18/2021</span>
-                        <span>8:15PM</span>
-                    </div>
-                </ul>
-                    <img src="/images/tshirt4.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="card-middle">
-                        <span>5</span>
-                        <span>Cost $10</span>
-                        <span><i class="bi bi-trash"></i></span>
-                    </div>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <div class="card-bottom">
-                        <span>Click to view 3 comments</span>
-                        <span><i class="bi bi-chat-left-dots"></i></span>
-                    </div>
-                </ul> 
-            </div>
-        </div>
-    </div>
-
-</div> --}}
-
 </body>
-   
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+    let imagesPreview = function(input, placeToInsertImagePreview) {
+        if (input.files) {
+            let filesAmount = input.files.length;
+            for (i = 0; i < filesAmount; i++) {
+              let reader = new FileReader();
+              reader.onload = function(event) {
+                $($.parseHTML("<img>"))
+                  .attr("src", event.target.result)
+                  .appendTo(placeToInsertImagePreview);
+              };
+              reader.readAsDataURL(input.files[i]);
+            }
+          }
+        };
+        $("#input-files").on("change", function() {
+          imagesPreview(this, "div.preview-images");
+        });
+      });
+</script>
+<script src="/js/upload.js"></script>
 </html>
-
- <script src="/js/upload.js"></script>
