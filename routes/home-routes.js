@@ -17,6 +17,7 @@ router.get("/", async (req, res) => {
     const designs = designData.map((designs) => designs.get({ plain: true }));
 
     res.render("all-designs", { designs });
+    // res.json(designs);
   } catch (err) {
     res.send(err);
     // res.status(500).json(err);
