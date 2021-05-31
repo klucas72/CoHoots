@@ -31,7 +31,7 @@
 * Licensed by mit
     
 ## Badge
-* [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/ 
+* [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
     
 ## Questions
 * For any questions, concerns, or additional help, please contact braxb92@gmail.com, karenroh@hotmail.com, salomeranson@gmail.com, klucas72@hotmail.com.
