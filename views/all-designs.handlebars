@@ -9,8 +9,16 @@
                         <span>Uploaded By: {{user.username}}</span>
                     </div>
                 </ul>
-                <img src="data:image/jpeg;base64,{{design.data}}" class="card-img-top" id="{{design.id}}" alt="..." style="height: 300px;">
+                    <img src="data:image/jpeg;base64,{{design.data}}" class="card-img-top" id="{{design.id}}" alt="..." style="height: 300px;">
                 <ul class="list-group list-group-flush">
+                    <form id='{{design.id}}-like' class='like-toggle' data-name='{{design.id}}'>
+                        <input type="hidden" id="design-id" value="{{design.id}}" />
+                        {{!-- {{#if design.likes.userId = req.session.id}} --}}
+                        <button type='submit' class='like-btn'>❤️</button>
+                        {{!-- {{else}} --}}
+                        {{!-- <button type='submit' class='like-btn'>🤍</button>
+                        {{/if}} --}}
+                    </form>
                     <div style="display: flex; justify-content: space-between; padding: 3%;">
                         <span><a href="/api/comments/{{design.id}}">View comments</a></span>
                     </div>
@@ -26,8 +34,4 @@
     </div>  
     {{/each}}
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
-<script src="/js/comment.js"></script>
 

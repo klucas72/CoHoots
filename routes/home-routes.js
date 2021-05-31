@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Design, User } = require("../models");
+const { Design, User, Like } = require("../models");
 
 // Homepage route
 // router.get("/", (req, res) => {
@@ -11,7 +11,7 @@ const { Design, User } = require("../models");
 router.get("/", async (req, res) => {
   try {
     const designData = await Design.findAll({
-      include: [User],
+      include: [User, Like],
     });
 
     const designs = designData.map((designs) => designs.get({ plain: true }));
@@ -20,7 +20,6 @@ router.get("/", async (req, res) => {
     // res.json(designs);
   } catch (err) {
     res.send(err);
-    // res.status(500).json(err);
   }
 });
 
