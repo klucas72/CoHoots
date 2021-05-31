@@ -24,7 +24,7 @@ Design.init(
     },
     price: {
       type: DataTypes.DECIMAL,
-      allowNull: true,
+      allowNull: false,
     },
   },
   {

@@ -10,6 +10,11 @@
                     </div>
                 </ul>
                 <img src="data:image/jpeg;base64,{{design.data}}" class="card-img-top" id="{{design.id}}" alt="..." style="height: 300px;">
+                  <div class="card-body">
+                    <div style="display: flex; justify-content: space-between">
+                        <span>5</span>
+                        <span>Cost ${{design.price}}</span>
+                    </div>
                 <ul class="list-group list-group-flush">
                     <div style="display: flex; justify-content: space-between; padding: 3%;">
                         <span><a href="/api/comments/{{design.id}}">View comments</a></span>
