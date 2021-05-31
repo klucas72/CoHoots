@@ -22,6 +22,10 @@ Design.init(
     data: {
       type: DataTypes.BLOB("long"),
     },
+    price: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
   },
   {
     sequelize,
