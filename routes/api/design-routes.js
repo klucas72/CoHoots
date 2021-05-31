@@ -8,7 +8,7 @@ router.post("/new", async (req, res) => {
   console.log(req.body);
   try {
     const designInfo = await Design.create({
-      image_url: req.body.image_url,
+      data: req.body.data,
       user_id: req.body.user_id,
       price: req.body.price,
     });
@@ -61,7 +61,7 @@ router.post("/", async (req, res) => {
   try {
     const newDesign = await Design.create({
       ...req.body,
-      image_url: req.body.image_url,
+      data: req.body.data,
       //   userId: req.session.userId,
       price: req.body.price,
     });
