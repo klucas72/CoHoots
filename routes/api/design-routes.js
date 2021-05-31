@@ -9,20 +9,20 @@ const ensureAuthenticated = require("../../utils/auth");
 // Once upload design form is completed, we will need to add the ensureAuthenticated and get user_id from the Sessions object
 router.post(
   "/",
-  upload.single("file"),
+  // Used to be called just "file", but changed name to fileData because it is what the name of the file in the form is now
+  upload.single("fileData"),
   ensureAuthenticated,
   async (req, res) => {
     const file = fs.readFileSync(`upload/${req.file.filename}`);
     const base64data = new Buffer(file, "binary").toString("base64");
     try {
       const newDesign = await Design.create({
-        ...req.body,
         user_id: req.session.userId,
         name: req.file.filename,
         data: base64data,
         price: req.body.price,
       });
-      res.redirect("../dashboard");
+      res.json({ newDesign: newDesign });
     } catch (err) {
       res.status(500).json(err);
     }

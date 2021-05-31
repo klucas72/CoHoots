@@ -1,15 +1,21 @@
-const submitBtn = document.getElementById("upload-btn");
+const submitBtn = document.getElementById("formInput");
 
 const uploadDesign = async (event) => {
   event.preventDefault();
   //   console.log(submitBtn);
   const price = document.querySelector("#price-input").value.trim();
-
-  if (price) {
+  const fileData = document.querySelector("#input-files").files[0];
+  // Replacing the already existing form data with our own
+  const form = new FormData();
+  // Creating a form that could handle both the multipart encryption data AND the json for the price
+  console.log(fileData);
+  form.append("fileData", fileData);
+  form.append("price", price);
+  if (price && fileData) {
     const response = await fetch("/api/designs", {
       method: "POST",
-      body: JSON.stringify({ price }),
-      headers: { "Content-Type": "application/json" },
+      // replacing body with form and since the header is automatically generated, it isn't needed
+      body: form,
     });
     if (response.ok) {
       document.location.replace("/dashboard");
@@ -40,4 +46,4 @@ $(document).ready(function () {
   });
 });
 
-submitBtn.addEventListener("click", uploadDesign);
+submitBtn.addEventListener("submit", uploadDesign);

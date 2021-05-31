@@ -1,28 +1,29 @@
 {{!-- MY STUFF --}}
 <div style="display: flex; justify-content: center; margin-top: 4%;">
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 25rem;">
         <div class="card-body text-center">
-            <div class="card-body mb-2" style="background-color: #7B8A8B; height: 150px;">
-              Drag in a file or <button type="button">Click to browse..</button>
+            <div class="card-body mb-2" style="background-color: #7B8A8B; height: 200px;">
+              Drag in a file or 
             </div>
-            <div class="form-group">
+            {{!-- <div class="form-group">
   <div class="form-group">
-    <div class="input-group mb-3">
-      <span class="input-group-text">$</span>
-      <input type="text" class="form-control" id="price-input" aria-label="Amount (to the nearest dollar)" placeholder="Price">
-      <span class="input-group-text">.00</span>
-    </div>
-     <button type="submit" class="btn btn-primary" id="upload-btn">Submit</button>
+
+    
   </div>
-</div>
+</div> --}}
 
 {{!-- BRAXTON'S STUFF --}}
           <form
             class="mt-4"
-            action="/api/designs"
             method="POST"
             enctype="multipart/form-data"
+            id="formInput"
           >
+              <div class="input-group mb-3">
+      <span class="input-group-text">$</span>
+      <input type="text" class="form-control" id="price-input" aria-label="Amount (to the nearest dollar)" placeholder="Price">
+      <span class="input-group-text">.00</span>
+    </div>
             <div class="form-group">
               <input
                 type="file"
@@ -32,6 +33,7 @@
                 class="form-control-file border"
               />
             </div>
+
             <button type="submit" class="btn btn-primary" id="upload-btn">Submit</button>
           </form>
         </div>
@@ -44,7 +46,7 @@
  
 
 </body>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 <script src="/js/upload.js"></script>
 </html>
