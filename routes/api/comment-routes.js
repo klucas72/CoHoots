@@ -9,9 +9,8 @@ router.post('/', ensureAuthenticated, async (req, res) => {
     const newComment = await Comment.create({
       ...req.body,
       body: req.body.body,
-      design_id: req.body.designId,
-      // user_id: req.body.userId,
-      user_id: req.session.userId,
+      designId: req.body.designId,
+      userId: req.session.userId
     });
     res.json(newComment);
   } catch (err) {

@@ -1,23 +1,18 @@
 const designEl = $("#design");
 
 
-
-
 designEl.click((e) => {
   let theTarget = e.target;
-
+  // console.log(theTarget);
   $("button").click(() => {
     let body = $(theTarget).val();
     const designId = theTarget.dataset.id;
-    // WARNING ----- THE userId IS CURRENTLY HARD-CODED
-    let userId = 4;
-
+    
      fetch('/api/comments', {
       method: 'POST',
       body: JSON.stringify({
           designId,
-          userId,
-          body
+          body,
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -26,7 +21,3 @@ designEl.click((e) => {
     document.location.reload();
   })
 })
-
-    
-  
-  
