@@ -22,11 +22,6 @@ Design.init(
     data: {
       type: DataTypes.BLOB("long"),
     },
-    image_url: {
-      type: DataTypes.STRING,
-      allowNull: false,
-
-    }
   },
   {
     sequelize,
