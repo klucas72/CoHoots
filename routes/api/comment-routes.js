@@ -6,7 +6,8 @@ const ensureAuthenticated = require("../../utils/auth");
 router.post("/", ensureAuthenticated, async (req, res) => {
   try {
     const newComment = await Comment.create({
-      body: req.body.comment,
+      ...req.body,
+      body: req.body.body,
       designId: req.body.designId,
       userId: req.session.userId,
     });
