@@ -1,42 +1,79 @@
-*{
+* {
   box-sizing: border-box;
 }
 
-.card-placement{
-  display: flex; 
-  justify-content: center; 
+.card-placement {
+  display: flex;
+  justify-content: space-evenly;
   margin-top: 10%;
 }
 
 .top-card {
-  display: flex; 
-  justify-content: space-evenly; 
-  padding-top: 3%; 
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 3%;
   padding-bottom: 3%;
 }
 
-.card-middle{
-  display: flex; 
-  justify-content: space-between
+.card-middle {
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-bottom {
-  display: flex; 
-  justify-content: space-between; 
+  display: flex;
+  justify-content: space-between;
   padding: 3%;
 }
 
-.card-comment{
-  display: flex; 
-  margin-top: 18%; 
-  justify-content: space-between; 
-  padding-right: 3%; 
+.card-comment {
+  display: flex;
+  margin-top: 18%;
+  justify-content: space-between;
+  padding-right: 3%;
   padding-bottom: 3%;
 }
 
-img {    
-  height: 300px;  
-  }
+img {
+  height: 300px;
+}
+
+body {
+  font-family: "Fredoka One", cursive;
+}
+
+.cost {
+  display: flex;
+  justify-content: space-around;
+}
+
+.like-toggle,
+.like-del {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 1%;
+}
+
+.close-row {
+  display: flex;
+  justify-content: start;
+  margin: 1%;
+}
+
+.like-del,
+.like-toggle {
+  margin-right: 2%;
+}
+
+.del {
+  display: flex;
+  margin-left: auto;
+}
 
 /* .footer {
     position: relative;
@@ -47,8 +84,3 @@ img {
     text-align: center;
     padding: 0.5em
   } */
-
-body {
-  font-family: 'Fredoka One', cursive;
-
-}
