@@ -1,13 +1,6 @@
 const router = require("express").Router();
 const { Design, User, Like } = require("../models");
 
-// Homepage route
-// router.get("/", (req, res) => {
-//   res.render("all-designs");
-// });
-
-// Homepage route
-// get all posts for homepage
 router.get("/", async (req, res) => {
   try {
     const designData = await Design.findAll({
@@ -24,7 +17,6 @@ router.get("/", async (req, res) => {
       return design;
     });
     res.render("all-designs", { designs });
-    // res.json(designs);
   } catch (err) {
     res.send(err);
   }

@@ -28,16 +28,16 @@
                         <button type='submit' class='like-btn'>🤍</button>
                     {{/if}}
                     </form>
-                    <span class='num-likes'>x likes</span>
+                    <span class='num-likes'>{{design.likes.length}} likes</span>
                     <span class='del'><i class="bi bi-trash delete-btn" id={{design.id}}></i></span>
                 </div>
                 <span class="cost">Cost ${{design.price}}</span>
-                <form id="commentForm">
+                {{!-- <form id="commentForm">
                     <div class="input-group input-group-sm" style="padding-left:2%; padding-right:2%">
                         <input type="text" id="comment-body" data-id="{{design.id}}" class="form-control" aria-label="Sizing example input" placeholder="Leave a Comment" aria-describedby="inputGroup-sizing-sm">
                         <button type="submit" class="btn btn-light">Send</button>
                     </div>
-                </form>
+                </form> --}}
                 <div style="display: flex; justify-content:center">
                     <a class="view-comments" href="/api/comments/{{design.id}}">View comments</a>
                 </div> 
