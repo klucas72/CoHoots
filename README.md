@@ -4,6 +4,7 @@
 * [Description](#description) 
 * [Installation](#installation)
 * [Usage](#usage)
+* [Deployed Website](#Deployed-Website)
 * [Contributors](#Contributors)
 * [License](#license)
 * [Badge](#badge)
@@ -18,13 +19,15 @@
 ## Usage
 * Online website is designed for users to login and upload their designs for custom t-shirts.  Simply log in or create your account to upload your own design. Also, feel free to comment on your friend's designs as well!
 
-[CoHoots Website](https://cohoots.herokuapp.com/)
 
 ![Example of the user dashboard](./dashboard.png "Example of user dashboard")
 
 ![Example of upload screen](./example_upload.png "Example of Upload screen")
 
 ![Example of T-Shirt Design](./tshirt.jpeg "Example of T-Shirt design")
+
+## Deployed Website
+[CoHoots Website](https://cohoots.herokuapp.com/)
     
 ## Contributors
 * Salome Ranson, Braxton BodenHamer, Karen Roh, Kristopher Lucas
