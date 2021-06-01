@@ -9,31 +9,22 @@
   {{#each designs as |design|}}
     <input type="hidden" id="design-id" value="{{design.id}}" />
     <div class="col-md-3">
-      <div class="card-placement">
-        <div class="card" id={{design.cardId}} style="width: 18rem;">
-          <ul class="list-group list-group-flush">
-            <div
-              style="display: flex; justify-content: space-evenly; padding-top: 3%; padding-bottom: 3%;"
-            >
-              <span>Uploaded: 5/18/2021</span>
-              {{! <span>5/18/2021</span> }}
-              <span>8:15PM</span>
-            </div>
-          </ul>
-          <img
-            src="data:image/jpeg;base64,{{design.data}}"
-            class="card-img-top"
-            alt="..."
-            style="height: 300px;"
-          />
-          <div class="card-body">
-            <div style="display: flex; justify-content: space-between">
-              <span>5</span>
-              <span>Cost ${{design.price}}</span>
-              <span><i
-                  class="bi bi-trash delete-btn"
-                  id={{design.id}}
-                ></i></span>
+        <div class="card-placement">
+            <div class="card" id={{design.cardId}} style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    <div style="display: flex; justify-content: space-evenly; padding-top: 3%; padding-bottom: 3%;">
+                        <span>Uploaded: {{ format_date design.createdAt}}</span>
+                        {{!-- <span>8:15PM</span> --}}
+                    </div>
+                </ul>
+                    <img src="data:image/jpeg;base64,{{design.data}}" class="card-img-top" alt="..." style="height: 300px;">
+                <div class="card-body">
+                    <div style="display: flex; justify-content: space-between">
+                        <span>5</span>
+                        <span>Cost ${{design.price}}</span>
+                        <span><i class="bi bi-trash delete-btn" id={{design.id}}></i></span>
+                    </div>
+                </div>
             </div>
           </div>
         </div>
