@@ -5,49 +5,52 @@
     >Upload a Design</a></button>
 </div>
 
-<div
-  class="row container-fluid"
-  id="tshirt"
-  style="margin-top: 2%; margin-bottom: 3%;"
->
-  {{#each designs as |design|}}
-    <input type="hidden" id="design-id" value="{{design.id}}" />
-    <div class="col-md-3">
-        <div class="card-placement">
-            <div class="card" id={{design.cardId}} style="width: 18rem;">
-                <ul class="list-group list-group-flush">
-                    <div style="display: flex; justify-content: space-evenly; padding-top: 3%; padding-bottom: 3%;">
-                        <span>Uploaded: {{ format_date design.createdAt}}</span>
+<div id="design">
+    <div
+    class="row container-fluid"
+    id="tshirt"
+    style="margin-top: 2%; margin-bottom: 3%;"
+    >
+    {{#each designs as |design|}}
+        <input type="hidden" id="design-id" value="{{design.id}}" />
+        <div class="col-md-3">
+            <div class="card-placement">
+                <div class="card" id={{design.cardId}} style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <div style="display: flex; justify-content: space-evenly; padding-top: 3%; padding-bottom: 3%;">
+                            <span>Uploaded: {{ format_date design.createdAt}}</span>
+                        </div>
+                    </ul>
+                        <img src="data:image/jpeg;base64,{{design.data}}" class="card-img-top" alt="..." style="height: 300px;">
+                    <div class='close-row'>
+                        {{#if design.liked}}
+                        <form id='{{design.id}}-like' class='like-del' data-name='{{design.id}}'>
+                            <input type="hidden" id="design-id" value="{{design.id}}" />
+                            <button type='submit' class='likedel-btn'>❤️</button>
+                        {{else}}
+                        <form id='{{design.id}}-like' class='like-toggle' data-name='{{design.id}}'>
+                            <input type="hidden" id="design-id" value="{{design.id}}" />
+                            <button type='submit' class='like-btn'>🤍</button>
+                        {{/if}}
+                        </form>
+                        <span class='num-likes'>{{design.likes.length}} likes</span>
+                        <span class='del'><i class="bi bi-trash delete-btn" id={{design.id}}></i></span>
                     </div>
-                </ul>
-                    <img src="data:image/jpeg;base64,{{design.data}}" class="card-img-top" alt="..." style="height: 300px;">
-                <div class='close-row'>
-                    {{#if design.liked}}
-                    <form id='{{design.id}}-like' class='like-del' data-name='{{design.id}}'>
-                        <input type="hidden" id="design-id" value="{{design.id}}" />
-                        <button type='submit' class='likedel-btn'>❤️</button>
-                    {{else}}
-                    <form id='{{design.id}}-like' class='like-toggle' data-name='{{design.id}}'>
-                        <input type="hidden" id="design-id" value="{{design.id}}" />
-                        <button type='submit' class='like-btn'>🤍</button>
-                    {{/if}}
+                    <span class="cost">Cost ${{design.price}}</span>
+                    <form id="commentForm">
+                        <div class="input-group input-group-sm" style="padding-left:2%; padding-right:2%">
+                            <input type="text" id="comment-body" data-id="{{design.id}}" class="form-control" aria-label="Sizing example input" placeholder="Leave a Comment" aria-describedby="inputGroup-sizing-sm">
+                            <button type="submit" class="btn btn-light">Send</button>
+                        </div>
                     </form>
-                    <span class='num-likes'>{{design.likes.length}} likes</span>
-                    <span class='del'><i class="bi bi-trash delete-btn" id={{design.id}}></i></span>
+                    <div style="display: flex; justify-content:center">
+                        <a class="view-comments" href="/api/comments/{{design.id}}">View comments</a>
+                    </div> 
                 </div>
-                <span class="cost">Cost ${{design.price}}</span>
-                {{!-- <form id="commentForm">
-                    <div class="input-group input-group-sm" style="padding-left:2%; padding-right:2%">
-                        <input type="text" id="comment-body" data-id="{{design.id}}" class="form-control" aria-label="Sizing example input" placeholder="Leave a Comment" aria-describedby="inputGroup-sizing-sm">
-                        <button type="submit" class="btn btn-light">Send</button>
-                    </div>
-                </form> --}}
-                <div style="display: flex; justify-content:center">
-                    <a class="view-comments" href="/api/comments/{{design.id}}">View comments</a>
-                </div> 
             </div>
         </div>
-    </div>
 
-  {{/each}}
+    {{/each}}
+    </div>
 </div>
+
