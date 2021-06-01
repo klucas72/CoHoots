@@ -54,7 +54,9 @@ img {
   }
 body {
   background-color: rgb(236, 239, 241);
-  font-family: 'Fredoka One', cursive;}
+  font-family: 'Fredoka One', cursive;
+
+}
 
   .button-color {
     background-color: rgb(19, 172, 185);
