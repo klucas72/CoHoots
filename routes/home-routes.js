@@ -1,13 +1,6 @@
 const router = require("express").Router();
 const { Design, User, Like } = require("../models");
 
-// Homepage route
-// router.get("/", (req, res) => {
-//   res.render("all-designs");
-// });
-
-// Homepage route
-// get all posts for homepage
 router.get("/", async (req, res) => {
   try {
     const designData = await Design.findAll({
@@ -15,9 +8,15 @@ router.get("/", async (req, res) => {
     });
 
     const designs = designData.map((designs) => designs.get({ plain: true }));
-
+    const currentUser = req.session.userId;
+    const testDesigns = designs.map((design) => {
+      const userLikes = design.likes
+        .map((like) => like.userId)
+        .includes(currentUser);
+      design.liked = userLikes;
+      return design;
+    });
     res.render("all-designs", { designs });
-    // res.json(designs);
   } catch (err) {
     res.send(err);
   }
