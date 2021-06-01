@@ -1,11 +1,15 @@
 <div style="margin-top: 3%; display: flex; justify-content: center;">
-  <button type="button" class="btn button-color"><a
+  <button type="button" class="btn btn-primary"><a
       href="dashboard/upload"
       style="text-decoration: none; color: inherit;"
     >Upload a Design</a></button>
 </div>
 
-<div class="row container-fluid" id="tshirt" style="margin-top: 5%;">
+<div
+  class="row container-fluid"
+  id="tshirt"
+  style="margin-top: 2%; margin-bottom: 3%;"
+>
   {{#each designs as |design|}}
     <input type="hidden" id="design-id" value="{{design.id}}" />
     <div class="col-md-3">
@@ -44,5 +48,6 @@
             </div>
         </div>
     </div>
+
   {{/each}}
 </div>
