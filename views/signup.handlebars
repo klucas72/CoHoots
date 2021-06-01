@@ -2,53 +2,103 @@
   <form class="mb-4 container-fluid" id="signup-form">
     <div class="form-group mb-4">
       <h3 class="display-6">Sign Up</h3>
-      <hr class="my-4">
+      <hr class="my-4" />
 
-      {{!-- Username --}}
-      <input type="text" class="form-control" placeholder="Enter Username" id="username-input-signup" />
+      {{! Username }}
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Username"
+        id="username-input-signup"
+      />
     </div>
 
-    {{!-- Password --}}
+    {{! Password }}
     <div class="form-group mb-4">
-      <input type="password" class="form-control" placeholder="Password" id="password-input-signup" />
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Password"
+        id="password-input-signup"
+      />
     </div>
 
-    {{!-- First Name--}}
+    {{! First Name}}
     <div class="row">
       <div class="col">
-        <input type="text" class="form-control" placeholder="First name" id="first-name-signup" aria-label="First name">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="First name"
+          id="first-name-signup"
+          aria-label="First name"
+        />
       </div>
-      {{!-- Last Name --}}
+      {{! Last Name }}
       <div class="col">
-        <input type="text" class="form-control" placeholder="Last name" id="last-name-signup" aria-label="Last name">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Last name"
+          id="last-name-signup"
+          aria-label="Last name"
+        />
       </div>
     </div>
-    <br>
-    {{!-- Street Address --}}
+    <br />
+    {{! Street Address }}
     <div class="form-group mb-4">
-      <input type="street-address" class="form-control" placeholder="Street Address" id="street-address-signup" />
+      <input
+        type="street-address"
+        class="form-control"
+        placeholder="Street Address"
+        id="street-address-signup"
+      />
     </div>
 
-    {{!-- City --}}
+    {{! City }}
     <div class="row">
       <div class="col">
-        <input type="text" class="form-control" placeholder="City" id="city-signup" aria-label="City">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="City"
+          id="city-signup"
+          aria-label="City"
+        />
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="state" id="state-signup" aria-label="state">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="state"
+          id="state-signup"
+          aria-label="state"
+        />
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="zip" id="zip-signup" aria-label="zip">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="zip"
+          id="zip-signup"
+          aria-label="zip"
+        />
       </div>
     </div>
-    <br>
-    {{!-- Email --}}
+    <br />
+    {{! Email }}
     <div class="form-group mb-4">
-      <input type="email" class="form-control" placeholder="Email" id="email-signup" />
+      <input
+        type="email"
+        class="form-control"
+        placeholder="Email"
+        id="email-signup"
+      />
     </div>
 
-        <input type="submit" value="Sign Up!" class="btn btn-primary w-100 mb-1" />
-        <p>Have An Account? <a href="/login" class="h6">Login</a></p>
-    </form>
+    <input type="submit" value="Sign Up!" class="btn button-color w-100 mb-1" />
+    <p>Have An Account? <a href="/login" class="h6">Login</a></p>
+  </form>
 </div>
 <script src="/js/signup.js"></script>
