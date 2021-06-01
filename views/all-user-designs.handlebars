@@ -19,6 +19,16 @@
                     <img src="data:image/jpeg;base64,{{design.data}}" class="card-img-top" alt="..." style="height: 300px;">
                 <div class="card-body">
                     <div style="display: flex; justify-content: space-between">
+                    {{#if design.liked}}
+                    <form id='{{design.id}}-like' class='like-del' data-name='{{design.id}}'>
+                        <input type="hidden" id="design-id" value="{{design.id}}" />
+                        <button type='submit' class='likedel-btn'>❤️</button>
+                    {{else}}
+                    <form id='{{design.id}}-like' class='like-toggle' data-name='{{design.id}}'>
+                        <input type="hidden" id="design-id" value="{{design.id}}" />
+                        <button type='submit' class='like-btn'>🤍</button>
+                    {{/if}}
+                    </form>
                         <span>5</span>
                         <span>Cost ${{design.price}}</span>
                         <span><i class="bi bi-trash delete-btn" id={{design.id}}></i></span>
@@ -29,7 +39,3 @@
     </div>
     {{/each}}
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
-<script src="/js/deleteDesign.js"></script>
