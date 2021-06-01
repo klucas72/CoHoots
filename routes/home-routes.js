@@ -15,8 +15,13 @@ router.get("/", async (req, res) => {
     });
 
     const designs = designData.map((designs) => designs.get({ plain: true }));
-
-    res.render("all-designs", { designs });
+    const currentUser = req.session.userId;
+    const testDesigns = designs.map((design) => {
+      const userLikes = design.likes.map((like) => like.userId).includes(currentUser);
+      design.liked = userLikes;
+      return design;
+    });
+    res.render("all-designs", { designs, currentUser });
     // res.json(designs);
   } catch (err) {
     res.send(err);
