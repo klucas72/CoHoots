@@ -1,5 +1,5 @@
 <div class="row container-fluid" style="margin-top: 5%;" id="design">
-    {{#each designs as |design|}}
+  {{#each designs as |design|}}
     <input type="hidden" id="design-id" value="{{design.id}}" />
     <div class="col-md-3">
         <div class="card-placement">
@@ -7,10 +7,11 @@
                 <ul class="list-group list-group-flush">
                     <div style="display: flex; justify-content: space-evenly; padding-top: 3%; padding-bottom: 3%;">
                         <span>Uploaded By: {{user.username}}</span>
+                        <span>{{format_date design.createdAt}}</span>
                     </div>
                 </ul>
                     <img src="data:image/jpeg;base64,{{design.data}}" class="card-img-top" id="{{design.id}}" alt="..." style="height: 300px;">
-                <ul class="list-group list-group-flush">
+                <div class='close-row'>
                     {{#if design.liked}}
                     <form id='{{design.id}}-like' class='like-del' data-name='{{design.id}}'>
                         <input type="hidden" id="design-id" value="{{design.id}}" />
@@ -21,19 +22,25 @@
                         <button type='submit' class='like-btn'>🤍</button>
                     {{/if}}
                     </form>
-                    <div style="display: flex; justify-content: space-between; padding: 3%;">
-                        <span><a href="/api/comments/{{design.id}}">View comments</a></span>
+                    <span class='numlikes' style="display: flex; justify-self: start">x likes</span>
+                </div>
+                <span class="cost">Cost ${{design.price}}</span>
+                <form id="commentForm">
+                    <div class="input-group input-group-sm" style="padding-left:2%; padding-right:2%">
+                        <input type="text" id="comment-body" data-id="{{design.id}}" class="form-control" aria-label="Sizing example input" placeholder="Leave a Comment" aria-describedby="inputGroup-sizing-sm">
+                        <button type="submit" class="btn btn-light">Send</button>
                     </div>
-                    <form id="commentForm">
-                        <div class="input-group input-group-sm mb-3" style="padding-left:2%; padding-right:2%">
-                            <input type="text" id="comment-body" data-id="{{design.id}}" class="form-control" aria-label="Sizing example input" placeholder="Leave a Comment" aria-describedby="inputGroup-sizing-sm">
-                            <button type="submit" class="btn btn-light" style="margin-left: 2%">Send</button>
-                        </div>
-                    </form>
-                </ul> 
+                </form>
+                <div style="display: flex; justify-content:center">
+                    <a class="view-comments" href="/api/comments/{{design.id}}">View comments</a>
+                </div> 
             </div>
         </div>
-    </div>  
-    {{/each}}
+    </div>
+  {{/each}}
 </div>
-
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"
+></script>

@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection.js");
 
-class Design extends Model {}
+class Design extends Model { }
 
 Design.init(
   {
@@ -22,10 +22,14 @@ Design.init(
     data: {
       type: DataTypes.BLOB("long"),
     },
+    price: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: "design",
